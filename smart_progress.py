@@ -75,5 +75,5 @@ def progressbar(
 	
 	try:
 		return IPyBackend(*args)
-	except ImportError, RuntimeError: #fall back if ipython is not installed or no notebook is running
+	except (ImportError, RuntimeError): #fall back if ipython is not installed or no notebook is running
 		return click.progressbar(*args)
