@@ -2,9 +2,13 @@
 Smart progressbar with multiple backends supporting both explicit updating and tqdm-style iterable-wrapping
 
 ## Usage
-`progressbar(iterable=None, length=None, label=None, ...)`
+```python
+progressbar(iterable=None, length=None, label=None,
+            show_eta=True, show_percent=None, show_pos=False,
+            item_show_func=None, ..., info_sep=' ', ...)
+```
 
-Check [click.progressbar](http://click.pocoo.org/5/api/#click.progressbar) for the parameters and details. As of now, the IPython backend ignores all parameters except from `iterable`, `length`, and `label`.
+Check [click.progressbar](http://click.pocoo.org/5/api/#click.progressbar) for the parameters and details. As of now, the IPython backend ignores all bar drawing and terminal-related parameters. (The ones not listed above)
 
 ## Example
 
