@@ -30,3 +30,10 @@ with con, progressbar(length=con.tot_size()) as bar:
 		do_work(block)
 		bar.update(len(block))
 ```
+
+## Dependencies
+
+* [click](http://click.pocoo.org) [5.x](http://click.pocoo.org/5)
+* [IPython](http://ipython.org) 4.x + [ipywidgets](https://github.com/ipython/ipywidgets)
+
+	(alternatively falls back to IPython 3.x)
