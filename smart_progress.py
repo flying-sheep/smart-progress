@@ -1,3 +1,7 @@
+__version__ = '1.0.0'
+__author__ = 'Philipp A.'
+__email__ = 'flying-sheep@web.de'
+
 import click
 from click._termui_impl import ProgressBar
 
