@@ -48,4 +48,9 @@ setup(
 	keywords='progress progressbar ipython jupyter console',
 	
 	py_modules=['smart_progress'],
+	
+	install_requires=['click'],
+	extras_require={
+		'ipynb': ['ipywidgets'],
+	},
 )
