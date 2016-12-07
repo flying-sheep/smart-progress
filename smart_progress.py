@@ -1,4 +1,4 @@
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __author__ = 'Philipp A.'
 __email__ = 'flying-sheep@web.de'
 
@@ -9,17 +9,19 @@ class IPyBackend(ProgressBar):
 	def __init__(self, iterable=None, length=None, *, label=None,
 			show_eta=True, show_percent=None, show_pos=False,
 			item_show_func=None, info_sep=' '):
-		from traitlets import TraitError
+		from IPython import get_ipython
+		
 		try:
 			from ipywidgets import FloatProgress
 		except ImportError:
 			from IPython.html.widgets.widget_float import FloatProgress
 		
-		try:
-			self.backend = FloatProgress(value=0, min=0, step=1)
-			# max and description are set via properties
-		except TraitError:
+		ipython = get_ipython()
+		if not ipython or ipython.__class__.__name__ != 'ZMQInteractiveShell':
 			raise RuntimeError('IPython notebook needs to be running')
+		
+		self.backend = FloatProgress(value=0, min=0, step=1)
+		# max and description are set via properties
 		
 		super().__init__(iterable, length, label=label,
 			show_eta=show_eta, show_percent=show_percent, show_pos=show_pos,
